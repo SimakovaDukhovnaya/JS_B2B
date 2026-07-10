@@ -3,7 +3,7 @@ require('dotenv').config();
 
 module.exports = defineConfig({
   testDir: './tests',
-  timeout: 120000,
+  timeout: 240000,
   expect: {
     timeout: 10000,
   },

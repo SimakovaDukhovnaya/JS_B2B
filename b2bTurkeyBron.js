@@ -48,9 +48,11 @@ const BookingPage = require('./bookingPage');
     await booking.fillBuyerInfo();
     await booking.recalculate();
 
-    currentStep = 'Ожидание (бронирование отключено)';
-    console.log('Тест завершён. Браузер остаётся открытым для просмотра.');
-    await page.waitForTimeout(300000);
+    currentStep = 'Бронирование';
+    await booking.submitBooking();
+
+    const { orderNumber, claimUrl } = await booking.getOrderInfo();
+    await sendMattermost(`✅ Тур забронирован. Номер заявки: ${orderNumber}\nСсылка: ${claimUrl}`);
     await browser.close();
   } catch (err) {
     const pageUrl = typeof page !== 'undefined' ? await page.evaluate(() => location.href).catch(() => 'недоступен') : 'недоступен';
