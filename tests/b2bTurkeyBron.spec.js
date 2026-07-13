@@ -1,7 +1,7 @@
 const { test } = require('@playwright/test');
-const LoginPage = require('../loginPage');
-const SearchPage = require('../searchPage');
-const BookingPage = require('../bookingPage');
+const LoginPage = require('../object/loginPage');
+const SearchPage = require('../object/searchPage');
+const BookingPage = require('../object/bookingPage');
 const { sendMattermost } = require('../notify');
 
 test.describe('B2B Turkey Bron', () => {
