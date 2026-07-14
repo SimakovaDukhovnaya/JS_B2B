@@ -2,11 +2,11 @@
 
 ```bash
 # Установка зависимостей
-npm install playwright
+npm install
 
 # Установка браузера (если не установлен)
 npx playwright install chromium
 
 # Запуск теста
-node b2bTurkeyBron.cjs
+npx playwright test tests/b2bTurkeyBron.spec.cjs
 ```
